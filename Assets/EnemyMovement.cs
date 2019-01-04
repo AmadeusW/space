@@ -28,4 +28,13 @@ public class EnemyMovement : MonoBehaviour
         var y = SpawnDistance - t * ApproachSpeed;
         transform.position = new Vector3(x, y, z);
     }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Player Projectile"))
+        {
+            //Destroy(other.gameObject);
+            Destroy(this.gameObject);
+        }
+    }
 }
