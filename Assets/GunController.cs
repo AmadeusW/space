@@ -27,19 +27,19 @@ public class GunController : MonoBehaviour
         }
         if (Input.GetKey(KeyCode.W))
         {
-            transform.Rotate(zAxis, 1);
+            transform.Rotate(xAxis, 1);
         }
         if (Input.GetKey(KeyCode.A))
         {
-            transform.Rotate(xAxis, 1);
+            transform.Rotate(zAxis, 1);
         }
         if (Input.GetKey(KeyCode.S))
         {
-            transform.Rotate(zAxis, -1);
+            transform.Rotate(xAxis, -1);
         }
         if (Input.GetKey(KeyCode.D))
         {
-            transform.Rotate(xAxis, -1);
+            transform.Rotate(zAxis, -1);
         }
     }
 
