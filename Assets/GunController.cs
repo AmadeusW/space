@@ -45,10 +45,13 @@ public class GunController : MonoBehaviour
 
     private void SpawnProjectile()
     {
-        var projectile = Instantiate(OriginalProjectile, this.transform.position, this.transform.rotation);
+        var gunDirection = Quaternion.LookRotation(this.transform.forward, this.transform.up);
+
+        var projectile = Instantiate(OriginalProjectile, this.transform.position, gunDirection);
         var body = projectile.GetComponent<Rigidbody>();
-        var angle = this.transform.forward;
-        body.velocity = new Vector3(angle.y, angle.z, angle.x) * ProjectileSpeed;
+        var shootingDirection = body.transform.up * 100.0f;
+
+        body.AddForce(shootingDirection, ForceMode.VelocityChange);
         Destroy(projectile.gameObject, ProjectileLifetime);
     }
 }
