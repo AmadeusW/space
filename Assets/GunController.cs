@@ -49,7 +49,7 @@ public class GunController : MonoBehaviour
 
         var projectile = Instantiate(OriginalProjectile, this.transform.position, gunDirection);
         var body = projectile.GetComponent<Rigidbody>();
-        var shootingDirection = body.transform.up * 100.0f;
+        var shootingDirection = body.transform.up * ProjectileSpeed;
 
         body.AddForce(shootingDirection, ForceMode.VelocityChange);
         Destroy(projectile.gameObject, ProjectileLifetime);
